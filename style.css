@@ -1,0 +1,132 @@
+/* Background Wallpaper */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.background-wallpaper {
+  background-image: url('NL.jpg'); /* Replace with your actual wallpaper image */
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the heading text to appear over the wallpaper */
+.top-text {
+  position: fixed; /* Fixes the position relative to the viewport */
+  top: 20px; /* Adjust distance from the top */
+  left: 50%;
+  transform: translateX(-50%); /* Center horizontally */
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  color: white; /* White text for contrast */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for better readability */
+  z-index: 2; /* Ensure it's above the background */
+  padding: 15px 20px; /* Add padding around the text */
+  max-width: 80%; /* Limit the width of the text box */
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  border-radius: 10px; /* Rounded corners */
+  text-align: center; /* Center the text inside the box */
+  font-weight: bold; /* Make text bold */
+  box-sizing: border-box; /* Ensure padding is included in width/height */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* Light border to separate from the background */
+}
+
+
+/* Flip Card Style */
+.flip-card {
+  background-color: transparent;
+  width: 400px; /* Adjust width */
+  height: 400px; /* Adjust height */
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  flex-direction: column;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  font-size: 24px;
+}
+
+.flip-card-front {
+  background-image: url('Stars.gif'); /* Replace with your front card image */
+  background-size: cover;
+  background-position: center;
+}
+
+.flip-card-back {
+  background-image: url('HOTQ.jpg'); /* Replace with your back card image */
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(180deg); /* Ensure the flip rotation */
+}
+
+/* Scrollable content on the back without breaking the flip */
+.flip-card-back .scrollable {
+  max-height: 2000px;
+  overflow-y: auto;
+  padding: 15px;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+  border-radius: 10px;
+  color: white;
+  text-align: middle;
+  box-sizing: border-box; /* Ensure padding doesn't mess with layout */
+}
+
+/* Flipping functionality */
+.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .flip-card {
+    width: 300px;
+    height: 300px;
+  }
+  .flip-card-back .scrollable {
+    max-height: 150px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flip-card {
+    width: 250px;
+    height: 250px;
+  }
+  .flip-card-back .scrollable {
+    max-height: 100px;
+    font-size: 10px;
+  }
+}
